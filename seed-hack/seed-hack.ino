@@ -21,7 +21,7 @@ static Svf filter;
 static ReverbSc verb;
 
 
-float pitchknob, decayknob, filterknob;
+float pitchknob, decayknob, filterknob, otherknob;
 
 void MyCallback(float **in, float **out, size_t size) {
   float verb_out_l, verb_out_r;
@@ -32,7 +32,7 @@ void MyCallback(float **in, float **out, size_t size) {
   adenv.SetTime(ADENV_SEG_DECAY, decayknob);
   // Set filter cutoff
   filter.SetFreq(filterknob);
-  filter.SetRes(decayknob);
+  filter.SetRes(otherknob);
 
 
   for (size_t i = 0; i < size; i++) {
@@ -114,5 +114,6 @@ void loop() {
   pitchknob = 24.0 + ((analogRead(A0) / 1023.0) * 60.0); 
   decayknob = analogRead(A1) / 1023.0;
   filterknob = ((analogRead(A2) / 1023.0) * 10000.0);
-  Serial.println(filterknob);
+  otherknob = analogRead(A3) / 1023.0;
+  //Serial.println(otherknob);
 }
