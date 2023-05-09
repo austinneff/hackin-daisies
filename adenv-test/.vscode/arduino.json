@@ -1,0 +1,6 @@
+{
+    "configuration": "pnum=DAISY_SEED,upload_method=swdMethod,xserial=generic,usb=none,xusb=FS,opt=osstd,dbg=none,rtlib=nano",
+    "board": "STMicroelectronics:stm32:GenH7",
+    "sketch": "adenv-test.ino",
+    "port": "COM3"
+}
